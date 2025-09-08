@@ -1,0 +1,105 @@
+/* === Resume Section General Styling === */
+.resume {
+  padding: 60px 0;
+  background-color: #f5f8fd; /* สีพื้นหลังอ่อนๆ ช่วยให้อ่านง่าย */
+}
+
+/* ใช้ container เพื่อจัดกลางและจำกัดความกว้าง */
+.resume .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* === Section Title Styling === */
+.resume .section-title {
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+.resume .section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #37474f;
+}
+
+.resume .section-title p {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* === Resume Grid Layout === */
+.resume .resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* สร้าง 2 คอลัมน์เท่ากัน */
+  gap: 30px; /* ระยะห่างระหว่างคอลัมน์ */
+}
+
+/* === Resume Column & Title Styling === */
+.resume .resume-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #1f5297;
+}
+
+/* === Resume Item Styling (Each Entry) === */
+.resume .resume-item {
+  padding-left: 20px;
+  border-left: 2px solid #1f5297; /* เส้น Timeline ด้านซ้าย */
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* สร้างวงกลมบนเส้น Timeline */
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  left: -11px; /* จัดตำแหน่งให้อยู่กึ่งกลางเส้น */
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #1f5297;
+}
+
+.resume .resume-item h4 {
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: 600;
+  color: #050d18;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item h5 {
+  font-size: 16px;
+  background-color: #e4edf9;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item p {
+  margin-bottom: 10px;
+}
+
+.resume .resume-item ul {
+  padding-left: 20px;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 10px;
+}
+
+
+/* === Responsive for smaller screens === */
+@media (max-width: 991px) {
+  .resume .resume-grid {
+    grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์ในจอเล็ก */
+  }
+}

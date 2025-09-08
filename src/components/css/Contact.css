@@ -15,10 +15,28 @@
 }
 
 .info-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 25px;
+    display: flex;
+    align-items: center; /* จัดกึ่งกลางในแนวตั้ง */
+    gap: 10px;          /* ระยะห่างระหว่างไอคอนกับข้อความ */
+    margin-bottom: 25px; /* จากรูปภาพ */
+    /* อาจจะเพิ่ม flex-wrap: wrap; ถ้าอยากให้ข้อความขึ้นบรรทัดใหม่เมื่อหน้าจอเล็ก */
 }
+
+/* ถ้า P tags มี margin/padding ติดมา ให้ reset */
+.info-item .text-content p {
+    margin: 0;
+    padding: 0;
+}
+
+/* ตรวจสอบว่า icon ตัวมันเองไม่ได้ถูกจัดให้อยู่เป็น block */
+.info-item .icon-container img {
+    display: block; /* หรือ inline-block เพื่อให้จัดการง่ายขึ้น */
+    vertical-align: middle; /* อาจช่วยในบางกรณี */
+    /* ตรวจสอบขนาดของไอคอน */
+    width: 20px; /* ตัวอย่าง */
+    height: 20px; /* ตัวอย่าง */
+}
+
 
 .info-item .icon-box {
   font-size: 1.5rem;

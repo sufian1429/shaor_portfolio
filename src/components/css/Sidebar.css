@@ -3,15 +3,16 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px; /* ความกว้างของ Sidebar */
-  height: 100vh; /* ความสูงเต็มหน้าจอ */
-  background-color: #040b14; /* สีพื้นหลัง */
-  color: #a8a9b4; /* สีตัวอักษรหลัก */
+  width: 300px;
+  height: 100vh;
+  background-color: #040b14;
+  color: #a8a9b4;
   padding: 30px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   transition: all 0.3s;
+  z-index: 999; /* เพิ่ม z-index เพื่อให้ Sidebar อยู่เหนือเนื้อหาอื่นเสมอ */
 }
 
 /* --- Header Section (Profile) --- */
@@ -39,7 +40,7 @@
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 10px; /* ระยะห่างระหว่างไอคอน */
+  gap: 10px;
 }
 
 .social-icons a {
@@ -57,7 +58,7 @@
 }
 
 .social-icons a:hover {
-  background-color: #149ddd; /* สีฟ้าตอน hover */
+  background-color: #149ddd;
 }
 
 /* --- Navigation Menu --- */
@@ -75,31 +76,31 @@
   margin-bottom: 8px;
   text-decoration: none;
   font-size: 1rem;
-  transition: color 0.3s;
-  position: relative;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 4px; /* เพิ่มขอบมนเล็กน้อย */
+  cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือ */
 }
 
-/* --- Menu Icons --- */
-.sidebar-nav a svg { /* Style ไอคอนจาก react-icons */
+/* --- Menu Icons & Text --- */
+.sidebar-nav a svg {
   font-size: 1.2rem;
   margin-right: 15px;
   color: #6f7180;
   transition: color 0.3s;
 }
 
+.sidebar-nav a span {
+  font-weight: 500;
+}
+
 /* --- Hover and Active States --- */
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
   color: #ffffff;
+  background-color: #212431; /* เพิ่มพื้นหลังเมื่อ active/hover */
 }
 
 .sidebar-nav a:hover svg,
 .sidebar-nav a.active svg {
-  color: #149ddd; /* สีไอคอนตอน hover หรือ active */
-}
-
-/* --- Dropdown Arrow --- */
-.dropdown-arrow {
-  margin-left: auto; /* ดันลูกศรไปทางขวา */
-  font-size: 0.8rem;
+  color: #149ddd;
 }

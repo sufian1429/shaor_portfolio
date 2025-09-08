@@ -1,72 +1,82 @@
 import React, { useState, useEffect } from 'react';
-import './css/Portfolio.css'; // ไฟล์ CSS ที่จะสร้างถัดไป
+import './css/Portfolio.css';
 
-// --- ส่วนข้อมูลผลงาน ---
-// 1. Import รูปภาพผลงานของคุณจากโฟลเดอร์ assets
+// Import รูปภาพทั้งหมดของคุณที่นี่
 import portfolio1 from '../assets/portfolio/portfolio-1.jpg';
 import portfolio2 from '../assets/portfolio/portfolio-2.jpg';
 import portfolio3 from '../assets/portfolio/portfolio-3.jpg';
+import portfolio4 from '../assets/portfolio/portfolio-4.jpg';
+// เพิ่มการนำเข้ารูปภาพอื่นๆ ของคุณที่นี่...
 
-
-// 2. สร้าง Array เก็บข้อมูลผลงานทั้งหมด
+// --- Data Configuration ---
+// ข้อมูลโปรเจกต์ทั้งหมด: เพิ่ม, ลบ, แก้ไขโปรเจกต์ของคุณได้ง่ายๆ ที่นี่
 const allProjects = [
-  { id: 1, image: portfolio1, category: 'app' },
-  { id: 2, image: portfolio2, category: 'product' },
-  { id: 3, image: portfolio3, category: 'branding' },
+  { id: 1, image: portfolio1, category: 'app', title: 'App Happy Save' },
+  { id: 2, image: portfolio2, category: 'branding', title: 'Youtube Channel Shaor' },
+  { id: 3, image: portfolio3, category: 'certificate', title: 'Certificate Big Data' },
+  { id: 4, image: portfolio4, category: 'certificate', title: 'Certificate Developer' },
+
+  // เพิ่มโปรเจกต์อื่นๆ ของคุณต่อที่นี่...
 ];
 
-function Portfolio() {
-  // State สำหรับเก็บ filter ที่ถูกเลือก ('*' คือทั้งหมด)
-  const [filter, setFilter] = useState('*');
-  // State สำหรับเก็บผลงานที่จะแสดงผล
-  const [projects, setProjects] = useState([]);
+// ข้อมูลสำหรับสร้างปุ่มฟิลเตอร์
+const filters = [
+  { key: '*', label: 'All' },
+  { key: 'app', label: 'App' },
+  { key: 'branding', label: 'Branding' },
+  { key: 'certificate', label: 'Certificate' },
+];
 
-  // useEffect จะทำงานทุกครั้งที่ค่า filter เปลี่ยน
+// --- Main Portfolio Component ---
+function Portfolio() {
+  const [activeFilter, setActiveFilter] = useState('*');
+  const [filteredProjects, setFilteredProjects] = useState([]);
+
   useEffect(() => {
-    if (filter === '*') {
-      setProjects(allProjects);
+    // Logic การฟิลเตอร์ที่กระชับขึ้น
+    if (activeFilter === '*') {
+      setFilteredProjects(allProjects);
     } else {
-      // กรอง allProjects โดยเลือกเฉพาะ category ที่ตรงกับ filter
-      const filteredProjects = allProjects.filter(
-        (project) => project.category === filter
+      const newFilteredProjects = allProjects.filter(
+        (project) => project.category === activeFilter
       );
-      setProjects(filteredProjects);
+      setFilteredProjects(newFilteredProjects);
     }
-  }, [filter]);
+  }, [activeFilter]);
 
   return (
     <section id="portfolio" className="portfolio">
-      <div className="section-title">
-        <h2>Portfolio</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div>
+      <div className="container">
+        <div className="section-title">
+          <h2>Portfolio</h2>
+          <p>Bismillah Shaor Portfolio</p>
+        </div>
 
-      {/* --- Filter Controls --- */}
-      <ul className="portfolio-filters">
-        <li onClick={() => setFilter('*')} className={filter === '*' ? 'active' : ''}>
-          ALL
-        </li>
-        <li onClick={() => setFilter('app')} className={filter === 'app' ? 'active' : ''}>
-          APP
-        </li>
-        <li onClick={() => setFilter('product')} className={filter === 'product' ? 'active' : ''}>
-          PRODUCT
-        </li>
-        <li onClick={() => setFilter('branding')} className={filter === 'branding' ? 'active' : ''}>
-          BRANDING
-        </li>
-        <li onClick={() => setFilter('books')} className={filter === 'books' ? 'active' : ''}>
-          BOOKS
-        </li>
-      </ul>
+        {/* สร้างปุ่มฟิลเตอร์จากข้อมูลใน Array */}
+        <ul className="portfolio-filters">
+          {filters.map(filter => (
+            <li
+              key={filter.key}
+              onClick={() => setActiveFilter(filter.key)}
+              className={activeFilter === filter.key ? 'active' : ''}
+            >
+              {filter.label}
+            </li>
+          ))}
+        </ul>
 
-      {/* --- Portfolio Grid --- */}
-      <div className="portfolio-grid">
-        {projects.map((project) => (
-          <div key={project.id} className="portfolio-item">
-            <img src={project.image} alt={`Portfolio item ${project.id}`} />
-          </div>
-        ))}
+        {/* แสดงผลโปรเจกต์ที่ผ่านการฟิลเตอร์ */}
+        <div className="portfolio-grid">
+          {filteredProjects.map((project) => (
+            <div key={project.id} className="portfolio-item">
+              <img src={project.image} alt={project.title} />
+              <div className="portfolio-info">
+                <h4>{project.title}</h4>
+                <p>{project.category}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
