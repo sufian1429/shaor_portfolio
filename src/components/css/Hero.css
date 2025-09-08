@@ -1,0 +1,36 @@
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  background: url('/src/assets/shaor_bg.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: left;  
+  align-items: center;
+  position: relative;
+  color: #fff;
+}
+
+/* สร้าง overlay สีเข้มเพื่อให้ตัวอักษรอ่านง่ายขึ้น */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative; /* ทำให้เนื้อหาอยู่เหนือ overlay */
+  text-align: left;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 2rem;
+}

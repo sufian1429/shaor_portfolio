@@ -1,0 +1,105 @@
+/* === Main Sidebar Container === */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px; /* ความกว้างของ Sidebar */
+  height: 100vh; /* ความสูงเต็มหน้าจอ */
+  background-color: #040b14; /* สีพื้นหลัง */
+  color: #a8a9b4; /* สีตัวอักษรหลัก */
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+
+/* --- Header Section (Profile) --- */
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 8px solid #2c2f3f;
+  object-fit: cover;
+}
+
+.profile-name {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 15px 0 10px;
+}
+
+/* --- Social Icons --- */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* ระยะห่างระหว่างไอคอน */
+}
+
+.social-icons a {
+  color: #ffffff;
+  background-color: #212431;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #149ddd; /* สีฟ้าตอน hover */
+}
+
+/* --- Navigation Menu --- */
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+  position: relative;
+}
+
+/* --- Menu Icons --- */
+.sidebar-nav a svg { /* Style ไอคอนจาก react-icons */
+  font-size: 1.2rem;
+  margin-right: 15px;
+  color: #6f7180;
+  transition: color 0.3s;
+}
+
+/* --- Hover and Active States --- */
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  color: #ffffff;
+}
+
+.sidebar-nav a:hover svg,
+.sidebar-nav a.active svg {
+  color: #149ddd; /* สีไอคอนตอน hover หรือ active */
+}
+
+/* --- Dropdown Arrow --- */
+.dropdown-arrow {
+  margin-left: auto; /* ดันลูกศรไปทางขวา */
+  font-size: 0.8rem;
+}

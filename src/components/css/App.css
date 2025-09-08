@@ -1,0 +1,27 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #45505b;
+  background-color: #f5f8fd;
+}
+
+.main-content {
+  margin-left: 300px; /* เว้นที่ให้ Sidebar */
+}
+
+section {
+  padding: 60px 30px;
+  overflow: hidden; /* แก้ปัญหา element เกินขอบ */
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #173b6c;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #149ddd;
+  margin-bottom: 30px;
+  display: inline-block;
+}

@@ -1,0 +1,89 @@
+/* === About Section Styling === */
+.about {
+  /* You can add a background color if you like */
+  /* background-color: #ffffff; */
+}
+
+/* --- Two-Column Layout for Main Content --- */
+.about-content {
+  display: flex; /* ใช้ Flexbox เพื่อสร้าง layout 2 คอลัมน์ */
+  flex-wrap: wrap; /* อนุญาตให้ขึ้นบรรทัดใหม่ในจอขนาดเล็ก */
+  gap: 2rem; /* ระยะห่างระหว่างคอลัมน์ */
+  margin-bottom: 3rem;
+}
+
+.about-image {
+  flex: 1; /* กำหนดให้คอลัมน์รูปภาพยืดหยุ่น */
+  min-width: 280px; /* ความกว้างขั้นต่ำก่อนจะขึ้นบรรทัดใหม่ */
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 8px; /* ทำให้ขอบรูปมน */
+}
+
+.about-text {
+  flex: 2; /* กำหนดให้คอลัมน์ข้อความกว้างเป็น 2 เท่าของรูปภาพ */
+  min-width: 300px;
+}
+
+.about-text h3 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #173b6c;
+}
+
+/* --- Personal Info List Styling --- */
+.personal-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.personal-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* ทำให้ list ทั้งสองฝั่งแบ่งพื้นที่เท่าๆ กัน */
+  min-width: 250px;
+}
+
+.personal-info li {
+  padding-bottom: 10px;
+}
+
+.personal-info li strong {
+  margin-right: 10px;
+  color: #343a40;
+}
+
+/* --- Stats Counter Section Styling --- */
+.stats-counter {
+  display: grid; /* ใช้ Grid เพื่อจัดเรียง item ให้สวยงาม */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* สร้างคอลัมน์อัตโนมัติ */
+  gap: 2rem; /* ระยะห่างระหว่าง item */
+  text-align: center;
+}
+
+.stat-item {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
+}
+
+.stat-item .counter {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #149ddd; /* สีฟ้าที่เป็น Accent */
+}
+
+.stat-item p {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #45505b;
+  font-size: 0.9rem;
+}
