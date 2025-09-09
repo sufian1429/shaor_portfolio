@@ -104,3 +104,77 @@
 .sidebar-nav a.active svg {
   color: #149ddd;
 }
+
+/* === Responsive Design === */
+/* เราจะใช้ #main เพื่ออ้างอิงถึงส่วนเนื้อหาหลักทั้งหมด */
+#main {
+  margin-left: 300px;
+  transition: margin-left 0.3s;
+}
+
+/* --- ปุ่ม Mobile Nav Toggle (ปุ่มแฮมเบอร์เกอร์) --- */
+.mobile-nav-toggle {
+  display: none; /* ซ่อนไว้ก่อนในจอใหญ่ */
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9999;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+  color: #149ddd;
+}
+
+
+/* === สำหรับจอ Tablet และเล็กกว่า (<= 992px) === */
+@media (max-width: 992px) {
+  /* ทำให้ Sidebar ซ่อนไปทางซ้ายสุดของจอ */
+  .sidebar {
+    left: -300px;
+  }
+  
+  /* Class ที่จะถูกเพิ่มด้วย JavaScript เพื่อแสดง Sidebar */
+  .sidebar-toggled {
+    left: 0;
+  }
+
+  /* ทำให้เนื้อหาหลักขยายเต็มจอ */
+  #main {
+    margin-left: 0;
+  }
+
+  /* แสดงปุ่มแฮมเบอร์เกอร์ */
+  .mobile-nav-toggle {
+    display: block;
+  }
+}
+
+
+/* === สำหรับจอ Mobile โดยเฉพาะ (<= 767px) === */
+@media (max-width: 767px) {
+  /* --- Section About --- */
+  
+  /* เปลี่ยน layout หลักของ About ให้เป็นแนวตั้ง */
+  .about .about-content {
+    flex-direction: column;
+  }
+
+  /* ลดขนาด font เพื่อความเหมาะสม */
+  .about .section-title h2 {
+    font-size: 28px;
+  }
+  .about .about-text h3 {
+    font-size: 22px;
+  }
+  
+  /* เปลี่ยน layout ของ Personal Info ให้เป็นแนวตั้ง */
+  .about .info-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

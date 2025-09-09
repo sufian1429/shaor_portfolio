@@ -7,9 +7,8 @@ import {
 import { Link } from 'react-scroll';
 import profilePic from '../assets/profile-pic.jpg';
 
-// --- Data Configuration ---
-// เก็บข้อมูลลิงก์ไว้ที่นี่ ทำให้แก้ไข เพิ่ม หรือลบได้ง่าย
 const socialLinks = [
+  // ... ข้อมูล socialLinks เหมือนเดิม
   { href: 'https://github.com/sufian1429', icon: <FaGithub />, label: 'GitHub' },
   { href: 'https://www.linkedin.com/in/sufian-maseng-ba2567259/', icon: <FaLinkedin />, label: 'LinkedIn' },
   { href: 'https://www.facebook.com/sufian.maseng.3/', icon: <FaFacebook />, label: 'Facebook' },
@@ -17,6 +16,7 @@ const socialLinks = [
 ];
 
 const navLinks = [
+  // ... ข้อมูล navLinks เหมือนเดิม
   { to: 'hero', icon: <FaHome />, text: 'Home' },
   { to: 'about', icon: <FaUser />, text: 'About' },
   { to: 'resume', icon: <FaFileAlt />, text: 'Resume' },
@@ -24,10 +24,12 @@ const navLinks = [
   { to: 'contact', icon: <FaEnvelope />, text: 'Contact' },
 ];
 
-// --- Main Sidebar Component ---
-function Sidebar() {
+// 1. รับ props (isOpen และ toggleSidebar) เข้ามาใน Component
+function Sidebar({ isOpen, toggleSidebar }) {
   return (
-    <aside className="sidebar">
+    // 2. ใช้ Template String เพื่อกำหนด className แบบมีเงื่อนไข
+    // ถ้า isOpen เป็น true, จะเพิ่ม class 'sidebar-toggled' เข้าไป
+    <aside className={`sidebar ${isOpen ? 'sidebar-toggled' : ''}`}>
       <div className="sidebar-header">
         <img src={profilePic} alt="Sufian Maseng" className="profile-pic" />
         <h1 className="profile-name">Sufian Maseng</h1>
@@ -51,6 +53,8 @@ function Sidebar() {
                 spy={true}
                 smooth={true}
                 duration={500}
+                // 3. เพิ่ม onClick เพื่อให้ Sidebar ปิดอัตโนมัติเมื่อคลิกเมนู (บนจอมือถือ)
+                onClick={toggleSidebar}
               >
                 {link.icon}
                 <span>{link.text}</span>

@@ -6,15 +6,18 @@ import portfolio1 from '../assets/portfolio/portfolio-1.jpg';
 import portfolio2 from '../assets/portfolio/portfolio-2.jpg';
 import portfolio3 from '../assets/portfolio/portfolio-3.jpg';
 import portfolio4 from '../assets/portfolio/portfolio-4.jpg';
+import portfolio5 from '../assets/portfolio/portfolio-5.jpg';
 // เพิ่มการนำเข้ารูปภาพอื่นๆ ของคุณที่นี่...
 
 // --- Data Configuration ---
 // ข้อมูลโปรเจกต์ทั้งหมด: เพิ่ม, ลบ, แก้ไขโปรเจกต์ของคุณได้ง่ายๆ ที่นี่
 const allProjects = [
   { id: 1, image: portfolio1, category: 'app', title: 'App Happy Save' },
-  { id: 2, image: portfolio2, category: 'branding', title: 'Youtube Channel Shaor' },
-  { id: 3, image: portfolio3, category: 'certificate', title: 'Certificate Big Data' },
-  { id: 4, image: portfolio4, category: 'certificate', title: 'Certificate Developer' },
+  { id: 2, image: portfolio5, category: 'web', title: 'Web Internship' },
+  { id: 3, image: portfolio2, category: 'branding', title: 'Youtube Channel Shaor' },
+  { id: 4, image: portfolio4, category: 'certificate', title: 'Certificate Big Data' },
+  { id: 5, image: portfolio3, category: 'certificate', title: 'Certificate Developer' },
+  
 
   // เพิ่มโปรเจกต์อื่นๆ ของคุณต่อที่นี่...
 ];
@@ -23,6 +26,7 @@ const allProjects = [
 const filters = [
   { key: '*', label: 'All' },
   { key: 'app', label: 'App' },
+  { key: 'web', label: 'Web' },
   { key: 'branding', label: 'Branding' },
   { key: 'certificate', label: 'Certificate' },
 ];
