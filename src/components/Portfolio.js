@@ -15,8 +15,8 @@ const allProjects = [
   { id: 1, image: portfolio1, category: 'app', title: 'App Happy Save' },
   { id: 2, image: portfolio5, category: 'web', title: 'Web Internship' },
   { id: 3, image: portfolio2, category: 'branding', title: 'Youtube Channel Shaor' },
-  { id: 4, image: portfolio4, category: 'certificate', title: 'Certificate Big Data' },
-  { id: 5, image: portfolio3, category: 'certificate', title: 'Certificate Developer' },
+  { id: 4, image: portfolio4, category: 'certificate', title: 'Certificate Developer' },
+  { id: 5, image: portfolio3, category: 'certificate', title: 'Certificate Big Data' },
   
 
   // เพิ่มโปรเจกต์อื่นๆ ของคุณต่อที่นี่...
