@@ -8,7 +8,7 @@ const personalInfo = {
     { label: 'Birthday', value: '12 December 1999' },
     
     { label: 'Phone', value: '+66 93 9371 381' },
-    { label: 'City', value: 'Phuket, Thailand' },
+    { label: 'Address', value: 'Phuket, Thailand' },
   ],
   rightColumn: [
     { label: 'Age', value: '26' },
