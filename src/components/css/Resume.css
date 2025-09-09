@@ -98,8 +98,67 @@
 
 
 /* === Responsive for smaller screens === */
-@media (max-width: 991px) {
+@media (max-width: 992px) {
+  /*
+   * ปรับ Section Title ให้อยู่กึ่งกลางบนจอมือถือ
+   * จะทำให้ดูสมดุลมากขึ้นเมื่อทุกอย่างอยู่ตรงกลาง
+   */
+  .resume .section-title {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  /*
+   * เปลี่ยน Grid Layout เป็น 1 คอลัมน์
+   * เพื่อให้เนื้อหาเรียงต่อกันในแนวตั้ง
+   */
   .resume .resume-grid {
-    grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์ในจอเล็ก */
+    grid-template-columns: 1fr;
+    gap: 20px; /* ลดระยะห่างระหว่าง Section บน-ล่างเล็กน้อย */
+  }
+
+  /*
+   * ลดขนาดของหัวข้อหลัก (Resume) เล็กน้อย
+   * เพื่อให้ไม่ดูใหญ่เกินไปบนจอมือถือ
+   */
+  .resume .section-title h2 {
+    font-size: 28px;
+  }
+
+  /*
+   * ลดขนาดของหัวข้อรอง (Summary, Education)
+   */
+  .resume .resume-title {
+    font-size: 22px;
+  }
+
+  /*
+   * ปรับปรุง Timeline Item เพื่อให้อ่านง่ายขึ้น
+   * การลด padding ซ้ายจะช่วยประหยัดพื้นที่แนวนอน
+   */
+  .resume .resume-item {
+    padding-left: 15px;
+    margin-bottom: 20px;
+  }
+
+  .resume .resume-item::before {
+    left: -10px; /* ขยับวงกลมให้พอดีกับเส้นใหม่ */
+    width: 18px;
+    height: 18px;
+  }
+
+  /*
+   * ลดขนาดของหัวข้อตำแหน่งงาน/การศึกษา
+   */
+  .resume .resume-item h4 {
+    font-size: 16px;
+  }
+
+  /*
+   * ลดขนาดของป้ายวันที่/ปี
+   */
+  .resume .resume-item h5 {
+    font-size: 14px;
+    padding: 4px 12px;
   }
 }

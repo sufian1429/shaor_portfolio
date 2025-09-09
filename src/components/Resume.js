@@ -96,6 +96,3 @@ function Resume() {
 
 export default Resume;
 
-// const serviceID = 'service_km0vczl';
-//     const templateID = 'template_hx0vli5';
-//     const publicKey = 'STMo1O8ZbLg00aF60';
