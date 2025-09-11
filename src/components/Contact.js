@@ -1,29 +1,29 @@
 import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser'; // 1. นำเข้าเครื่องมือที่จำเป็น
+import emailjs from '@emailjs/browser'; 
 import './css/Contact.css'; 
 import { IoLocationOutline } from 'react-icons/io5'; 
 import { RiPhoneLine } from 'react-icons/ri';
 import { HiOutlineMail } from 'react-icons/hi';
 
 function Contact() {
-  // 2. สร้างตัวแปรเพื่ออ้างอิงถึงฟอร์มของเรา
+  
   const form = useRef();
 
-  // 3. สร้างฟังก์ชันที่จะทำงานเมื่อกดปุ่ม "Send Message"
+  
   const sendEmail = (e) => {
-    e.preventDefault(); // ป้องกันไม่ให้หน้าเว็บรีเฟรช
+    e.preventDefault(); 
 
-    // ⚠️⚠️⚠️ ส่วนสำคัญ: ใส่ KEY ทั้ง 3 ตัวของคุณที่นี่ ⚠️⚠️⚠️
+    
     emailjs.sendForm(
-        'service_km0vczl',    // << ใส่ Service ID ที่คัดลอกมา
-        'template_hx0vli5',   // << ใส่ Template ID ที่คัดลอกมา
-        form.current,         // อ้างอิงถึงฟอร์มปัจจุบัน
-        'STMo1O8ZbLg00aF60'     // << ใส่ Public Key ที่คัดลอกมา
+        'service_km0vczl',   
+        'template_hx0vli5',   
+        form.current,        
+        'STMo1O8ZbLg00aF60'     
       )
       .then((result) => {
           console.log('SUCCESS!', result.text);
           alert('ข้อความของคุณถูกส่งเรียบร้อยแล้ว!');
-          form.current.reset(); // เคลียร์ค่าในฟอร์มทั้งหมด
+          form.current.reset();
       }, (error) => {
           console.log('FAILED...', error.text);
           alert('เกิดข้อผิดพลาด ไม่สามารถส่งข้อความได้');
@@ -39,7 +39,7 @@ function Contact() {
 
       <div className="contact-container">
         <div className="contact-info">
-          {/* ... ส่วนของ Info ไม่มีการเปลี่ยนแปลง ... */}
+          
           <div className="info-item">
             <div className="icon-box"><IoLocationOutline /></div>
             <div className="text-content">
@@ -64,7 +64,7 @@ function Contact() {
         </div>
 
         <div className="contact-form">
-          {/* 4. เชื่อมฟังก์ชันเข้ากับฟอร์ม HTML */}
+          
           <form ref={form} onSubmit={sendEmail}>
             <div className="form-row">
               <div className="form-group">

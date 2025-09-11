@@ -1,4 +1,4 @@
-/* === General About Section Styling === */
+
 .about {
   padding: 60px 0;
 }
@@ -9,7 +9,7 @@
   padding: 0 15px;
 }
 
-/* === Section Title === */
+
 .about .section-title {
   text-align: left;
   padding-bottom: 30px;
@@ -28,7 +28,7 @@
   font-style: italic;
 }
 
-/* === Two-Column Layout (Image + Text) === */
+
 .about .about-content {
   display: flex;
   flex-wrap: wrap;
@@ -50,7 +50,7 @@
   min-width: 300px;
 }
 
-/* === Typography within About Text === */
+
 .about .about-text h3 {
   font-weight: 700;
   font-size: 26px;
@@ -62,7 +62,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* === Personal Info Grid === */
+
 .about .info-grid {
   display: flex;
   flex-wrap: wrap;
@@ -86,7 +86,7 @@
   color: #343a40;
 }
 
-/* === Skills & Interests Lists === */
+
 .about .skills-section,
 .about .interests-section {
   margin-top: 2rem;
@@ -98,27 +98,26 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; /* ระยะห่างระหว่าง skill/interest */
+  gap: 10px; 
 }
 
 .about .skills-list li,
 .about .interests-list li {
-  background-color: #e4edf9; /* สีพื้นหลัง */
+  background-color: #e4edf9; 
   padding: 8px 15px;
-  border-radius: 20px; /* ทำให้ขอบมน */
+  border-radius: 20px; 
   font-size: 14px;
 }
 
-/* === General About Section Styling === */
-/* ... (CSS ส่วนอื่นๆ เหมือนเดิม) ... */
 
-/* === Skills & Interests Lists === */
+
+
 .about .skills-section,
 .about .interests-section {
   margin-top: 2rem;
 }
 
-/* === CSS ที่เพิ่มเข้ามาสำหรับหัวข้อย่อยของ Skill === */
+
 .about .skill-category h4 {
   font-size: 16px;
   font-weight: 600;
@@ -132,14 +131,14 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; /* ระยะห่างระหว่าง skill/interest */
-  margin-bottom: 1rem; /* เพิ่มระยะห่างระหว่างหมวดหมู่ */
+  gap: 10px; 
+  margin-bottom: 1rem; 
 }
 
 .about .skills-list li,
 .about .interests-list li {
-  background-color: #e4edf9; /* สีพื้นหลัง */
+  background-color: #e4edf9; 
   padding: 8px 15px;
-  border-radius: 20px; /* ทำให้ขอบมน */
+  border-radius: 20px; 
   font-size: 14px;
 }

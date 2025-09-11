@@ -9,7 +9,7 @@
   color: #fff;
 }
 
-/* สร้าง overlay สีเข้มเพื่อให้ตัวอักษรอ่านง่ายขึ้น */
+
 .hero-section::before {
   content: '';
   position: absolute;
@@ -21,7 +21,7 @@
 }
 
 .hero-content {
-  position: relative; /* ทำให้เนื้อหาอยู่เหนือ overlay */
+  position: relative; 
   text-align: left;
   z-index: 1;
 }

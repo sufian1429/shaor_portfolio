@@ -2,11 +2,10 @@ import React from 'react';
 import './css/About.css';
 import aboutImg from '../assets/profile-pic.jpg';
 
-// --- DATA ---
-// จัดเก็บข้อมูลในรูปแบบ Object เพื่อง่ายต่อการจัดการ
+
 const resumeData = {
   personalInfo: {
-    birthday: '1999-12-12', // ใช้ Format YYYY-MM-DD เพื่อการคำนวณ
+    birthday: '1999-12-12', 
     phone: '+66 93 9371 381',
     address: 'Phuket, Thailand',
     degree: 'Junior Developer',
@@ -45,8 +44,7 @@ const resumeData = {
   ],
 };
 
-// --- HELPER FUNCTION ---
-// ฟังก์ชันสำหรับคำนวณอายุจากวันเกิด
+
 const calculateAge = (birthDateString) => {
   const birthDate = new Date(birthDateString);
   const today = new Date();
@@ -61,14 +59,14 @@ const calculateAge = (birthDateString) => {
   return age;
 };
 
-// --- REUSABLE COMPONENTS ---
+
 const InfoItem = ({ label, value }) => (
   <li>
     <strong>{label}:</strong> {value}
   </li>
 );
 
-// Component ใหม่สำหรับแสดง Skills ในแต่ละหมวดหมู่
+
 const SkillCategory = ({ title, items }) => (
   <div className="skill-category">
     <h4>{title}</h4>
@@ -80,11 +78,11 @@ const SkillCategory = ({ title, items }) => (
   </div>
 );
 
-// --- MAIN COMPONENT ---
+
 function About() {
   const age = calculateAge(resumeData.personalInfo.birthday);
 
-  // เตรียมข้อมูลส่วนตัวสำหรับแสดงผล
+
   const personalInfo = {
     leftColumn: [
       { label: 'Birthday', value: '12 December 1999' },
@@ -92,7 +90,7 @@ function About() {
       { label: 'Address', value: resumeData.personalInfo.address },
     ],
     rightColumn: [
-      { label: 'Age', value: age }, // ใช้อายุที่คำนวณได้
+      { label: 'Age', value: age }, 
       { label: 'Degree', value: resumeData.personalInfo.degree },
       { label: 'Email', value: resumeData.personalInfo.email },
     ],

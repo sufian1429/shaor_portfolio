@@ -1,8 +1,7 @@
 import React from 'react';
 import './css/Resume.css';
 
-// Component ย่อยสำหรับแต่ละรายการใน Resume
-// ทำให้โค้ดสะอาดและนำไปใช้ซ้ำได้ง่าย
+
 const ResumeItem = ({ title, duration, institution, details }) => (
   <div className="resume-item">
     <h4>{title}</h4>
@@ -26,7 +25,7 @@ function Resume() {
           <h2>Resume</h2>          
         </div>
         <div className="resume-grid">
-          {/* คอลัมน์ซ้าย */}
+          
           <div className="resume-column">
             <h3 className="resume-title">Summary</h3>
             <ResumeItem
@@ -61,7 +60,7 @@ function Resume() {
           </div>
         
         
-          {/* คอลัมน์ขวา */}
+          
           <div className="resume-column">
             <h3 className="resume-title">Work Experience</h3>
             <ResumeItem

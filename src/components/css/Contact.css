@@ -1,11 +1,11 @@
-/* === Contact Section Styling === */
+
 .contact-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
 }
 
-/* --- Left Column: Contact Info --- */
+
 .contact-info {
   flex: 1;
   min-width: 300px;
@@ -16,25 +16,25 @@
 
 .info-item {
     display: flex;
-    align-items: center; /* จัดกึ่งกลางในแนวตั้ง */
-    gap: 10px;          /* ระยะห่างระหว่างไอคอนกับข้อความ */
-    margin-bottom: 25px; /* จากรูปภาพ */
-    /* อาจจะเพิ่ม flex-wrap: wrap; ถ้าอยากให้ข้อความขึ้นบรรทัดใหม่เมื่อหน้าจอเล็ก */
+    align-items: center; 
+    gap: 10px;          
+    margin-bottom: 25px; 
+    
 }
 
-/* ถ้า P tags มี margin/padding ติดมา ให้ reset */
+
 .info-item .text-content p {
     margin: 0;
     padding: 0;
 }
 
-/* ตรวจสอบว่า icon ตัวมันเองไม่ได้ถูกจัดให้อยู่เป็น block */
+
 .info-item .icon-container img {
-    display: block; /* หรือ inline-block เพื่อให้จัดการง่ายขึ้น */
-    vertical-align: middle; /* อาจช่วยในบางกรณี */
-    /* ตรวจสอบขนาดของไอคอน */
-    width: 20px; /* ตัวอย่าง */
-    height: 20px; /* ตัวอย่าง */
+    display: block; 
+    vertical-align: middle; 
+    
+    width: 20px; 
+    height: 20px; 
 }
 
 
@@ -49,7 +49,7 @@
   height: 44px;
   border-radius: 50%;
   margin-right: 15px;
-  flex-shrink: 0; /* ป้องกันไอคอนถูกบีบ */
+  flex-shrink: 0; 
 }
 
 .info-item h4 {
@@ -71,9 +71,9 @@
   margin-top: 20px;
 }
 
-/* --- Right Column: Contact Form --- */
+
 .contact-form {
-  flex: 2; /* ให้ฟอร์มกว้างเป็น 2 เท่า */
+  flex: 2; 
   min-width: 300px;
   background-color: #ffffff;
   padding: 30px;
@@ -104,7 +104,7 @@
   border: 1px solid #ced4da;
   border-radius: 4px;
   font-size: 0.9rem;
-  box-sizing: border-box; /* สำคัญมากเพื่อให้ padding ไม่ทำให้ element เกินขนาด */
+  box-sizing: border-box; 
 }
 
 .form-group input:focus,
@@ -131,17 +131,17 @@
 .contact-form button[type="submit"]:hover {
   background-color: #37a3e1;
 }
-/* --- Responsive for smaller screens --- */
+
 @media (max-width: 992px) {
   .portfolio-grid {
-    /* 2 คอลัมน์สำหรับจอ Tablet */
+    
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .portfolio-grid {
-    /* 1 คอลัมน์สำหรับจอมือถือ */
+    
     grid-template-columns: 1fr;
   }
 }
