@@ -3,7 +3,7 @@ import './css/Portfolio.css';
 
 // Import รูปภาพทั้งหมดของคุณที่นี่
 import portfolio1 from '../assets/portfolio/portfolio-1.jpg';
-import portfolio2 from '../assets/portfolio/portfolio-2.jpg';
+
 import portfolio3 from '../assets/portfolio/portfolio-3.jpg';
 import portfolio4 from '../assets/portfolio/portfolio-4.jpg';
 import portfolio5 from '../assets/portfolio/portfolio-5.jpg';
@@ -14,7 +14,7 @@ import portfolio5 from '../assets/portfolio/portfolio-5.jpg';
 const allProjects = [
   { id: 1, image: portfolio1, category: 'app', title: 'App Happy Save' },
   { id: 2, image: portfolio5, category: 'web', title: 'Web Internship' },
-  { id: 3, image: portfolio2, category: 'branding', title: 'Youtube Channel Shaor' },
+  
   { id: 4, image: portfolio4, category: 'certificate', title: 'Certificate Developer' },
   { id: 5, image: portfolio3, category: 'certificate', title: 'Certificate Big Data' },
   
@@ -27,7 +27,7 @@ const filters = [
   { key: '*', label: 'All' },
   { key: 'app', label: 'App' },
   { key: 'web', label: 'Web' },
-  { key: 'branding', label: 'Branding' },
+  
   { key: 'certificate', label: 'Certificate' },
 ];
 
@@ -53,7 +53,7 @@ function Portfolio() {
       <div className="container">
         <div className="section-title">
           <h2>Portfolio</h2>
-          <p>Bismillah Shaor Portfolio</p>
+          <p>Bismillah Sufian Portfolio</p>
         </div>
 
         {/* สร้างปุ่มฟิลเตอร์จากข้อมูลใน Array */}

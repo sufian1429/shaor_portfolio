@@ -2,44 +2,102 @@ import React from 'react';
 import './css/About.css';
 import aboutImg from '../assets/profile-pic.jpg';
 
+// --- DATA ---
+// จัดเก็บข้อมูลในรูปแบบ Object เพื่อง่ายต่อการจัดการ
+const resumeData = {
+  personalInfo: {
+    birthday: '1999-12-12', // ใช้ Format YYYY-MM-DD เพื่อการคำนวณ
+    phone: '+66 93 9371 381',
+    address: 'Phuket, Thailand',
+    degree: 'Junior Developer',
+    email: 'sufian94150@gmail.com',
+  },
+  skills: {
+    languages: [
+      
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'Dart',
 
-const personalInfo = {
-  leftColumn: [
-    { label: 'Birthday', value: '12 December 1999' },
-    
-    { label: 'Phone', value: '+66 93 9371 381' },
-    { label: 'Address', value: 'Phuket, Thailand' },
-  ],
-  rightColumn: [
-    { label: 'Age', value: '26' },
-    { label: 'Degree', value: 'Junior Developer' },
-    { label: 'Email', value: 'sufian94150@gmail.com' },
-    
+    ],
+    frameworksAndLibraries: [
+      'React',
+      'Vue.js',
+      'Node.js',
+      'Flutter',
+      'Robot Framework',
+    ],
+    toolsAndDatabases: [
+      'Git',
+      'GitHub',
+      'Postman',
+      'MySQL',
+      'Firebase',
+      'MongoDB',
+    ],
+  },
+  interests: [
+    'QA & Software Tester',
+    'Front-end Developer',
+    'Mobile & Web Developer',
+    'Data Engineer',
   ],
 };
 
-const skills = [
-  'HTML / CSS / JavaScript', 'React', 'Vue.js', 'Node.js', 
-  'Flutter / Dart', 'Git / GitHub', 'Postman', 
-  'MySQL / Firebase / MongoDB', 'Visual Studio Code', 
-  'Android Studio', 'Robot Framework'
-];
+// --- HELPER FUNCTION ---
+// ฟังก์ชันสำหรับคำนวณอายุจากวันเกิด
+const calculateAge = (birthDateString) => {
+  const birthDate = new Date(birthDateString);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDifference = today.getMonth() - birthDate.getMonth();
+  if (
+    monthDifference < 0 ||
+    (monthDifference === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+  return age;
+};
 
-const interests = [
-  'QA & Software Tester', 'Front-end Developer', 
-  'Mobile & Web Developer', 'Data Engineer'
-];
-
-// --- Reusable Component ---
-// Component เล็กๆ สำหรับแสดงรายการข้อมูลส่วนตัว
+// --- REUSABLE COMPONENTS ---
 const InfoItem = ({ label, value }) => (
   <li>
     <strong>{label}:</strong> {value}
   </li>
 );
 
-// --- Main Component ---
+// Component ใหม่สำหรับแสดง Skills ในแต่ละหมวดหมู่
+const SkillCategory = ({ title, items }) => (
+  <div className="skill-category">
+    <h4>{title}</h4>
+    <ul className="skills-list">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  </div>
+);
+
+// --- MAIN COMPONENT ---
 function About() {
+  const age = calculateAge(resumeData.personalInfo.birthday);
+
+  // เตรียมข้อมูลส่วนตัวสำหรับแสดงผล
+  const personalInfo = {
+    leftColumn: [
+      { label: 'Birthday', value: '12 December 1999' },
+      { label: 'Phone', value: resumeData.personalInfo.phone },
+      { label: 'Address', value: resumeData.personalInfo.address },
+    ],
+    rightColumn: [
+      { label: 'Age', value: age }, // ใช้อายุที่คำนวณได้
+      { label: 'Degree', value: resumeData.personalInfo.degree },
+      { label: 'Email', value: resumeData.personalInfo.email },
+    ],
+  };
+
   return (
     <section id="about" className="about">
       <div className="container">
@@ -61,38 +119,44 @@ function About() {
             <p className="about-intro">
               Here are a few details about me.
             </p>
-            
+
             <div className="info-grid">
               <ul>
-                {personalInfo.leftColumn.map(item => (
-                  <InfoItem key={item.label} label={item.label} value={item.value} />
+                {personalInfo.leftColumn.map((item) => (
+                  <InfoItem key={item.label} {...item} />
                 ))}
               </ul>
               <ul>
-                {personalInfo.rightColumn.map(item => (
-                  <InfoItem key={item.label} label={item.label} value={item.value} />
+                {personalInfo.rightColumn.map((item) => (
+                  <InfoItem key={item.label} {...item} />
                 ))}
               </ul>
             </div>
 
             <div className="skills-section">
               <h3>Skills</h3>
-              <ul className="skills-list">
-                {skills.map(skill => (
-                  <li key={skill}>{skill}</li>
-                ))}
-              </ul>
+              <SkillCategory
+                title="Languages"
+                items={resumeData.skills.languages}
+              />
+              <SkillCategory
+                title="Frameworks & Libraries"
+                items={resumeData.skills.frameworksAndLibraries}
+              />
+              <SkillCategory
+                title="Tools & Databases"
+                items={resumeData.skills.toolsAndDatabases}
+              />
             </div>
-            
+
             <div className="interests-section">
               <h3>Interests</h3>
               <ul className="interests-list">
-                {interests.map(interest => (
+                {resumeData.interests.map((interest) => (
                   <li key={interest}>{interest}</li>
                 ))}
               </ul>
             </div>
-
           </div>
         </div>
       </div>
@@ -101,3 +165,4 @@ function About() {
 }
 
 export default About;
+

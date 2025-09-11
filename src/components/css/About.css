@@ -108,3 +108,38 @@
   border-radius: 20px; /* ทำให้ขอบมน */
   font-size: 14px;
 }
+
+/* === General About Section Styling === */
+/* ... (CSS ส่วนอื่นๆ เหมือนเดิม) ... */
+
+/* === Skills & Interests Lists === */
+.about .skills-section,
+.about .interests-section {
+  margin-top: 2rem;
+}
+
+/* === CSS ที่เพิ่มเข้ามาสำหรับหัวข้อย่อยของ Skill === */
+.about .skill-category h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #45505b;
+  margin-bottom: 10px;
+}
+
+.about .skills-list,
+.about .interests-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* ระยะห่างระหว่าง skill/interest */
+  margin-bottom: 1rem; /* เพิ่มระยะห่างระหว่างหมวดหมู่ */
+}
+
+.about .skills-list li,
+.about .interests-list li {
+  background-color: #e4edf9; /* สีพื้นหลัง */
+  padding: 8px 15px;
+  border-radius: 20px; /* ทำให้ขอบมน */
+  font-size: 14px;
+}
