@@ -12,28 +12,34 @@ const resumeData = {
     email: 'sufian94150@gmail.com',
   },
   skills: {
-    languages: [
+    testingToolsAndFrameworks: [
       
-      'HTML',
-      'CSS',
+      'Robot Framework',
+      'Postman',
+      'Git',
+      
+
+    ],
+    languages: [
       'JavaScript',
       'Dart',
-
+      'HTML',
+      'CSS',
+      'SQL',
     ],
     frameworksAndLibraries: [
       'React',
       'Vue.js',
       'Node.js',
       'Flutter',
-      'Robot Framework',
+      
     ],
-    toolsAndDatabases: [
-      'Git',
-      'GitHub',
-      'Postman',
+    databaseAndOthers: [
       'MySQL',
-      'Firebase',
       'MongoDB',
+      'Firebase',
+      'GitHub',
+      
     ],
   },
   interests: [
@@ -134,6 +140,10 @@ function About() {
             <div className="skills-section">
               <h3>Skills</h3>
               <SkillCategory
+                title="Testing Tools & Frameworks"
+                items={resumeData.skills.testingToolsAndFrameworks}
+              />
+              <SkillCategory
                 title="Languages"
                 items={resumeData.skills.languages}
               />
@@ -142,8 +152,8 @@ function About() {
                 items={resumeData.skills.frameworksAndLibraries}
               />
               <SkillCategory
-                title="Tools & Databases"
-                items={resumeData.skills.toolsAndDatabases}
+                title="Databases & Others"
+                items={resumeData.skills.databaseAndOthers}
               />
             </div>
 
