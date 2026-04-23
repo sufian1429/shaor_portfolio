@@ -49,7 +49,7 @@ function Contact() {
           <div className="info-item">
             <div className="icon-box"><RiPhoneLine /></div>
             <div className="text-content">
-              <h4>Call Us</h4><p>+66 93 9371 381</p>
+              <h4>Call Us</h4><p>+66 96 6375 261</p>
             </div>
           </div>
           <div className="info-item">

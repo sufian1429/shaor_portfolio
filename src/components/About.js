@@ -6,7 +6,7 @@ import aboutImg from '../assets/profile-pic.jpg';
 const resumeData = {
   personalInfo: {
     birthday: '1999-12-12', 
-    phone: '+66 93 9371 381',
+    phone: '+66 96 6375 261',
     address: 'Phuket, Thailand',
     degree: 'Junior Developer',
     email: 'sufian94150@gmail.com',
@@ -14,7 +14,7 @@ const resumeData = {
   skills: {
     testingToolsAndFrameworks: [
       
-      'Robot Framework',
+      
       'Postman',
       'Git',
       

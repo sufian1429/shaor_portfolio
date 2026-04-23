@@ -53,7 +53,7 @@ function Resume() {
             <h3 className="resume-title">Professional Experience</h3>
             <ResumeItem
               title="CCTV Control Center Officer"
-              duration="2024 - Present"
+              duration="2024 - 2026"
               institution="Kathu Subdistrict, Kathu District, Phuket"
               details={['Monitored and operated CCTV systems to ensure public safety.']}
             />

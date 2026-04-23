@@ -13,7 +13,7 @@ function Hero() {
             sequence={[              
               'Junior Developer',
               2000, 
-              'Software Tester',
+              'Developer ?',
               2000,             
             ]}
             wrapper="span"
