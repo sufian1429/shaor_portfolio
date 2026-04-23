@@ -51,7 +51,7 @@ function Portfolio() {
       <div className="container">
         <div className="section-title">
           <h2>Portfolio</h2>
-          <p>Bismillah Sufian Portfolio</p>
+          <p>Bismillah... Sufian Portfolio</p>
         </div>
 
        
