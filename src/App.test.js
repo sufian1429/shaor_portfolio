@@ -1,7 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
+jest.mock('lenis', () => class { destroy() {} });
+
 beforeAll(() => {
+  window.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {} });
   window.IntersectionObserver = class {
     observe() {}
     disconnect() {}

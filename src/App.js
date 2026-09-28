@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import './styles.css';
 import { t } from './content';
 import { Splash, Nav, Hero, About, Portfolio, Contact } from './sections/Sections';
@@ -16,6 +18,13 @@ function App() {
   const [ready, setReady] = useState(false);
   const onSplashDone = useCallback(() => setReady(true), []);
   const tx = t[lang];
+
+  // เลื่อนหน้าแบบลื่น (Lenis) — ปิดเมื่อผู้ใช้ตั้งค่าลดการเคลื่อนไหว, บนจอสัมผัสใช้การเลื่อนปกติของเครื่อง
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const lenis = new Lenis({ autoRaf: true, lerp: 0.12, wheelMultiplier: 1, anchors: { offset: -68 } });
+    return () => lenis.destroy();
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = lang;

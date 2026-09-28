@@ -34,7 +34,8 @@ section { padding: 110px 0; }
 @keyframes up { to { opacity: 1; transform: none; } }
 
 /* ---------- Nav ---------- */
-.nav { position: sticky; top: 0; z-index: 50; background: rgba(250, 250, 249, .82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .3s; }
+/* ไม่ใช้ backdrop-filter: blur บนแถบที่ติดตามการเลื่อน เพราะต้องวาดใหม่ทุกเฟรม */
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(250, 250, 249, .96); border-bottom: 1px solid transparent; transition: border-color .3s; }
 .nav.scrolled { border-color: var(--line); }
 .nav-in { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .logo { font-weight: 800; font-size: 19px; }
@@ -58,8 +59,9 @@ section { padding: 110px 0; }
 .btn:disabled { opacity: .6; cursor: default; transform: none; }
 .btn.block { width: 100%; justify-content: center; margin-top: 16px; }
 .chip { display: inline-flex; align-items: center; gap: 8px; background: var(--soft); color: var(--acc); padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 500; }
-.dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34, 197, 94, .5); animation: ping 2s infinite; }
-@keyframes ping { 70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+.dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+.dot::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: #22c55e; animation: ping 2s ease-out infinite; }
+@keyframes ping { 0% { transform: scale(1); opacity: .6; } 80%, 100% { transform: scale(3); opacity: 0; } }
 .eyebrow { color: var(--acc); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .section-head { text-align: center; }
 h2 { font-size: clamp(30px, 4.5vw, 46px); letter-spacing: -.03em; margin: 10px 0 12px; line-height: 1.1; }
@@ -67,14 +69,15 @@ h2 { font-size: clamp(30px, 4.5vw, 46px); letter-spacing: -.03em; margin: 10px 0
 .row { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ---------- Reveal on scroll ---------- */
-.rv { opacity: 0; transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
-.rv-up { transform: translateY(28px); }
-.rv-left { transform: translateX(-36px); }
-.rv-right { transform: translateX(36px); }
+.rv { opacity: 0; transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); }
+.rv:not(.in) { will-change: opacity, transform; }
+.rv-up { transform: translate3d(0, 24px, 0); }
+.rv-left { transform: translate3d(-28px, 0, 0); }
+.rv-right { transform: translate3d(28px, 0, 0); }
 .rv-zoom { transform: scale(.94); }
 .rv.in { opacity: 1; transform: none; }
 .pop { animation: pop .5s ease-out backwards; }
-@keyframes pop { from { opacity: 0; transform: translateY(18px); } }
+@keyframes pop { from { opacity: 0; transform: translate3d(0, 18px, 0); } }
 
 /* ---------- Hero ---------- */
 .hero-wrap { padding: 0; }
@@ -90,15 +93,17 @@ h2 { font-size: clamp(30px, 4.5vw, 46px); letter-spacing: -.03em; margin: 10px 0
 .socials a { width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; background: var(--card); transition: all .2s; }
 .socials a:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
 .hero-art { position: relative; aspect-ratio: 1; max-width: 480px; width: 100%; justify-self: center; }
-.blob { position: absolute; inset: 6%; border-radius: 42% 58% 55% 45% / 45% 45% 55% 55%; background: linear-gradient(135deg, #dbe4ff, #f1efec); animation: morph 10s ease-in-out infinite; }
-@keyframes morph { 50% { border-radius: 58% 42% 45% 55% / 55% 60% 40% 45%; transform: rotate(8deg); } }
+/* หมุน/ย่อขยายด้วย transform อย่างเดียว (ไม่ animate border-radius ซึ่งต้องวาดใหม่ทุกเฟรม) */
+.blob { position: absolute; inset: 6%; border-radius: 42% 58% 55% 45% / 45% 45% 55% 55%; background: linear-gradient(135deg, #dbe4ff, #f1efec); animation: morph 12s ease-in-out infinite; will-change: transform; }
+@keyframes morph { 50% { transform: rotate(18deg) scale(1.04, .97); } }
 .hero-photo { position: absolute; inset: 16%; width: 68%; height: 68%; object-fit: cover; border-radius: 50%; border: 6px solid var(--card); box-shadow: 0 30px 60px rgba(0, 0, 0, .1); }
 .float-card { position: absolute; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 18px; box-shadow: 0 20px 40px rgba(0, 0, 0, .07); animation: float 5s ease-in-out infinite; font-size: 13px; color: var(--mute); }
 .float-card b { display: block; font-size: 22px; color: var(--ink); }
 .fc1 { top: 8%; left: -2%; }
 .fc2 { bottom: 8%; right: -2%; animation-delay: -2s; }
 .fc3 { top: 44%; right: -4%; animation-delay: -3.5s; font-family: ui-monospace, monospace; color: var(--acc); }
-@keyframes float { 50% { transform: translateY(-14px); } }
+.float-card { will-change: transform; }
+@keyframes float { 50% { transform: translate3d(0, -14px, 0); } }
 
 /* ---------- About ---------- */
 .about { display: grid; grid-template-columns: 1.2fr .8fr; gap: 56px; align-items: center; margin-top: 56px; }
@@ -107,7 +112,7 @@ h2 { font-size: clamp(30px, 4.5vw, 46px); letter-spacing: -.03em; margin: 10px 0
 .about p { color: var(--mute); line-height: 1.75; margin: 0 0 24px; }
 .photo { width: min(300px, 78%); aspect-ratio: 1; border-radius: 50%; margin: 0 auto; position: relative; }
 .photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-.photo::before { content: ''; position: absolute; inset: -14px; border-radius: 50%; border: 1px dashed #c4c4c4; animation: spin 26s linear infinite; }
+.photo::before { content: ''; position: absolute; inset: -14px; border-radius: 50%; border: 1px dashed #c4c4c4; animation: spin 26s linear infinite; will-change: transform; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
 .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; justify-content: space-between; align-items: flex-start; }
@@ -207,6 +212,15 @@ textarea.field { resize: vertical; }
 footer { border-top: 1px solid var(--line); padding: 30px 20px; color: var(--mute); font-size: 14px; text-align: center; }
 
 /* ---------- Responsive ---------- */
+/* จอสัมผัส: ไม่มี hover ค้างหลังแตะ */
+@media (hover: none) {
+  .btn:hover, .proj:hover, .stat:hover, .tech div:hover, .socials a:hover { transform: none; box-shadow: none; }
+  .proj:hover .thumb > * { transform: none; }
+  .channels a:hover { padding-left: 0; }
+}
+@media (min-width: 1600px) {
+  .wrap { max-width: 1280px; }
+}
 @media (max-width: 1100px) {
   .tech { grid-template-columns: repeat(6, 1fr); }
 }
@@ -231,6 +245,18 @@ footer { border-top: 1px solid var(--line); padding: 30px 20px; color: var(--mut
   .float-card { padding: 10px 12px; font-size: 12px; }
   .float-card b { font-size: 18px; }
   .lead { font-size: 16px; }
+}
+/* มือถือแนวนอน / จอเตี้ย */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero { min-height: auto; grid-template-columns: 1.2fr .8fr; padding-top: 24px; }
+  .hero-art { order: 0; max-width: 260px; }
+  .splash-icons { margin-bottom: 14px; }
+}
+@media (max-width: 360px) {
+  .wrap, .hero { padding-left: 16px; padding-right: 16px; }
+  .tabs button { padding: 8px 11px; font-size: 12.5px; }
+  .hero h1 { font-size: 38px; }
+  .num { font-size: 34px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

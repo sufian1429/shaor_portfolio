@@ -39,18 +39,23 @@ export function Nav({ tx, lang, setLang }) {
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10);
+    // คำนวณครั้งเดียวต่อเฟรม และ re-render เฉพาะเมื่อค่าเปลี่ยน — เลื่อนเร็วแล้วไม่หน่วง
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const y = window.scrollY;
       let cur = 'home';
       SECTIONS.forEach((id) => {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 120) cur = id;
+        if (el && y >= el.offsetTop - 120) cur = id;
       });
+      setScrolled(y > 10);
       setActive(cur);
     };
-    onScroll();
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(frame); };
   }, []);
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>

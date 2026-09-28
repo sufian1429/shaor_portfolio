@@ -14,7 +14,7 @@ export const Reveal = forwardRef(function Reveal({ as: Tag = 'div', from = 'up',
     if (!el || !('IntersectionObserver' in window)) return setShown(true);
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setShown(true); io.disconnect(); }
-    }, { threshold: 0.15 });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
     io.observe(el);
     return () => io.disconnect();
   }, []);
