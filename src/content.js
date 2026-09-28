@@ -59,7 +59,7 @@ export const experience = [
   { years: '2024 — 2026',
     en: { role: 'IT Operations & System Support', org: 'Southern Information Technology Co., Ltd.', desc: 'Tier 1–2 support, monitored 170+ CCTV cameras 24/7, and kept LAN/Wi-Fi healthy.' },
     th: { role: 'IT Operations & System Support', org: 'Southern Information Technology Co., Ltd.', desc: 'ซัพพอร์ตผู้ใช้ระดับ 1–2 ดูแลกล้อง CCTV กว่า 170 ตัวตลอด 24 ชม. และดูแลเครือข่าย LAN/Wi-Fi' } },
-  { years: '2023',
+  { years: '2024',
     en: { role: 'Front-end Developer Intern', org: 'Nebula Venture Co., Ltd.', desc: 'Built web interfaces with HTML, CSS, JavaScript and React.' },
     th: { role: 'นักศึกษาฝึกงาน Front-end Developer', org: 'Nebula Venture Co., Ltd.', desc: 'พัฒนาหน้าเว็บด้วย HTML, CSS, JavaScript และ React' } },
   { years: '2018 — 2024',
