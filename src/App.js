@@ -1,54 +1,39 @@
-import React, { useState } from 'react'; 
-import './components/css/App.css'; 
-import Sidebar from './components/Sidebar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Resume from './components/Resume';
-import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
-import './components/css/Responsive.css';
+import React, { useCallback, useEffect, useState } from 'react';
+import './styles.css';
+import { t } from './content';
+import { Splash, Nav, Hero, About, Portfolio, Contact } from './sections/Sections';
 
-
-import { FaBars, FaTimes } from 'react-icons/fa';
+function initialLang() {
+  try {
+    const saved = localStorage.getItem('lang');
+    if (saved === 'en' || saved === 'th') return saved;
+  } catch (e) { /* storage blocked */ }
+  return 'en';
+}
 
 function App() {
-  
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [lang, setLang] = useState(initialLang);
+  const [ready, setReady] = useState(false);
+  const onSplashDone = useCallback(() => setReady(true), []);
+  const tx = t[lang];
 
-  
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
-
-  // เมนูในแถบข้างและฉากหลังใช้ปิดอย่างเดียว (บนเดสก์ท็อปจะได้ไม่สลับสถานะค้าง)
-  const closeSidebar = () => setSidebarOpen(false);
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('lang', lang); } catch (e) { /* storage blocked */ }
+  }, [lang]);
 
   return (
-    <div className="app">
-      
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={closeSidebar} />
-
-      
-      {isSidebarOpen && <div className="sidebar-backdrop" onClick={closeSidebar} />}
-
-      <button
-        type="button"
-        className="mobile-nav-toggle"
-        onClick={toggleSidebar}
-        aria-label={isSidebarOpen ? 'Close menu' : 'Open menu'}
-      >
-        {isSidebarOpen ? <FaTimes /> : <FaBars />}
-      </button>
-
-      
-      <main id="main">
-        <Hero />
-        <About />
-        <Resume />
-        <Portfolio />
-        <Contact />
+    <>
+      <Splash tx={tx} onDone={onSplashDone} />
+      <Nav tx={tx} lang={lang} setLang={setLang} />
+      <main>
+        <Hero tx={tx} ready={ready} />
+        <About tx={tx} lang={lang} />
+        <Portfolio tx={tx} lang={lang} />
+        <Contact tx={tx} />
       </main>
-    </div>
+      <footer>© {new Date().getFullYear()} Sufian Maseng · {tx.footer}</footer>
+    </>
   );
 }
 
