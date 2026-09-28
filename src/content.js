@@ -11,7 +11,7 @@ export const profile = {
   email: 'sufian94150@gmail.com',
   phone: '+66 96 637 5261',
   phoneHref: 'tel:+66966375261',
-  line: '', // ใส่ลิงก์ LINE เช่น https://line.me/ti/p/~yourid — เว้นว่างจะไม่แสดง
+  line: 'https://line.me/ti/p/~0869651800', // LINE ID: 0869651800 (ข้อความปุ่มอยู่ใน sections/Sections.js)
   socials: [
     { key: 'github', label: 'GitHub', href: 'https://github.com/sufian1429' },
     { key: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/sufian-maseng-ba2567259/' },

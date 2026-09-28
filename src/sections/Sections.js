@@ -252,7 +252,7 @@ export function Contact({ tx }) {
       .then(() => { setStatus('ok'); form.current.reset(); }, () => setStatus('fail'));
   };
   const channels = [
-    profile.line && { label: 'LINE', href: profile.line, icon: <FaLine /> },
+    profile.line && { label: 'LINE · 0869651800', href: profile.line, icon: <FaLine /> },
     { label: profile.email, href: `mailto:${profile.email}` },
     { label: profile.phone, href: profile.phoneHref },
     ...profile.socials.map((s) => ({ label: s.label, href: s.href })),
