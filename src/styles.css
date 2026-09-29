@@ -6,12 +6,15 @@
   --radius: 20px;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: clip; scroll-padding-top: 72px; }
+html { scroll-behavior: smooth; overflow-x: clip; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', 'IBM Plex Sans Thai', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
 html[lang='th'] body { font-family: 'IBM Plex Sans Thai', 'Inter', system-ui, sans-serif; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font: inherit; }
+a, button { -webkit-tap-highlight-color: transparent; }
+/* กันเลื่อนแนวนอนบนเบราว์เซอร์ที่ไม่รู้จัก overflow-x: clip (iOS < 16, in-app browser ของ LINE/Facebook) — ไม่ใส่ที่ body เพราะจะทำให้ nav sticky เสีย */
+main { overflow-x: hidden; overflow-x: clip; }
 .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
 .center { text-align: center; }
 .muted { color: var(--mute); }
@@ -199,7 +202,7 @@ h2 { font-size: clamp(30px, 4.5vw, 46px); letter-spacing: -.03em; margin: 10px 0
 .box { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 30px; }
 .box h4 { margin: 0 0 4px; font-size: 22px; }
 .box > .muted { margin: 0 0 8px; }
-.field { width: 100%; border: 1px solid var(--line); background: var(--bg); border-radius: 12px; padding: 13px 14px; font: inherit; font-size: 15px; margin-top: 12px; color: var(--ink); transition: border-color .2s, box-shadow .2s; }
+.field { width: 100%; border: 1px solid var(--line); background: var(--bg); border-radius: 12px; padding: 13px 14px; font: inherit; font-size: 16px; margin-top: 12px; color: var(--ink); transition: border-color .2s, box-shadow .2s; }
 .field:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 4px var(--soft); }
 textarea.field { resize: vertical; }
 .note { font-size: 14px; margin: 12px 0 0; }
@@ -245,6 +248,18 @@ footer { border-top: 1px solid var(--line); padding: 30px 20px; color: var(--mut
   .float-card { padding: 10px 12px; font-size: 12px; }
   .float-card b { font-size: 18px; }
   .lead { font-size: 16px; }
+  /* ตัวเลขสถิติ 3 ช่องเรียงแถวเดียว แทนการ์ดสูงซ้อนกัน 3 ใบ */
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 44px; }
+  .stat { flex-direction: column-reverse; justify-content: flex-end; padding: 16px 14px; gap: 2px; }
+  .stat-ic { display: none; }
+  .stat small { margin-top: 0; font-size: 12px; letter-spacing: 0; text-transform: none; overflow-wrap: anywhere; }
+  .num { font-size: 32px; }
+  /* รูปโปรไฟล์แสดงใน hero แล้ว — ส่วน About บนมือถือไม่ต้องซ้ำ */
+  .about { margin-top: 36px; }
+  .about .photo { display: none; }
+  .cv { margin-top: 52px; }
+  .tabs { margin: 28px 0 32px; }
+  .contact { margin-top: 32px; }
 }
 /* มือถือแนวนอน / จอเตี้ย */
 @media (max-height: 520px) and (orientation: landscape) {
@@ -256,7 +271,8 @@ footer { border-top: 1px solid var(--line); padding: 30px 20px; color: var(--mut
   .wrap, .hero { padding-left: 16px; padding-right: 16px; }
   .tabs button { padding: 8px 11px; font-size: 12.5px; }
   .hero h1 { font-size: 38px; }
-  .num { font-size: 34px; }
+  .num { font-size: 28px; }
+  .stat { padding: 14px 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

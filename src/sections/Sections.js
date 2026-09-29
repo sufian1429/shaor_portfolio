@@ -185,8 +185,12 @@ export function Portfolio({ tx, lang }) {
       if (b) setPill({ left: b.offsetLeft, width: b.offsetWidth });
     };
     place();
+    // ฟอนต์โหลดเสร็จทีหลังทำให้ความกว้างปุ่มเปลี่ยน — วัดใหม่เมื่อขนาดแท็บเปลี่ยน
+    const ro = 'ResizeObserver' in window ? new ResizeObserver(place) : null;
+    btns.current.forEach((b) => b && ro && ro.observe(b));
+    if (document.fonts) document.fonts.ready.then(place);
     window.addEventListener('resize', place);
-    return () => window.removeEventListener('resize', place);
+    return () => { window.removeEventListener('resize', place); if (ro) ro.disconnect(); };
   }, [tab, lang]);
 
   return (
