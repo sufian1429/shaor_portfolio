@@ -21,6 +21,7 @@ export const profile = {
 };
 
 // mock: ชนิดภาพจำลองหน้าจอ (ดู components/Mock.js) — ใส่ image แทนเมื่อมีภาพจริง
+// phone: ภาพหน้าจอแนวตั้ง — แสดงในกรอบมือถือบนพื้นสี phone (แทนการครอปเต็มช่อง)
 export const projects = [
   { id: 'bravocuts', mock: 'booking', url: 'https://www.bravocuts.com/', tags: ['React', 'Supabase', 'TH / EN'],
     en: { title: 'BravoCuts', desc: 'Online queue & booking for a professional barbershop, with a Thai/English switch for tourists.' },
@@ -34,10 +35,10 @@ export const projects = [
   { id: 'dashboard', mock: 'dashboard', tags: ['Dashboard', 'Data'],
     en: { title: 'Executive dashboard', desc: 'Expense reports for two companies that executives can read at a glance.' },
     th: { title: 'แดชบอร์ดผู้บริหาร', desc: 'รายงานค่าใช้จ่ายของ 2 บริษัท ให้ผู้บริหารดูสรุปได้ทันที' } },
-  { id: 'happysave', image: happySave, tags: ['Flutter', 'Mobile'],
+  { id: 'happysave', image: happySave, phone: '#e3f3e4', tags: ['Flutter', 'Mobile'],
     en: { title: 'Happy Save app', desc: 'Mobile app to record income and expenses with photos.' },
     th: { title: 'แอป Happy Save', desc: 'แอปบันทึกรายรับ-รายจ่ายพร้อมรูปภาพ' } },
-  { id: 'nebula', image: webInternship, tags: ['React', 'Internship'],
+  { id: 'nebula', image: webInternship, phone: '#f4d98f', tags: ['React', 'Internship'],
     en: { title: 'NFT marketplace (internship)', desc: 'Front-end for a website where users buy and sell NFT cards.' },
     th: { title: 'เว็บซื้อขาย NFT (ฝึกงาน)', desc: 'พัฒนาหน้าเว็บสำหรับซื้อขายการ์ด NFT' } },
 ];

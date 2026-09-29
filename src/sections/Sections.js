@@ -212,7 +212,11 @@ export function Portfolio({ tx, lang }) {
             {projects.map((p, i) => (
               <article className="proj pop" style={{ animationDelay: `${i * 0.06}s` }} key={p.id}>
                 <div className="thumb">
-                  {p.image ? <img src={p.image} alt={p[lang].title} loading="lazy" /> : <Mock kind={p.mock} url={p.url} />}
+                  {p.phone ? (
+                    <div className="phone-shot" style={{ '--bg': p.phone }}>
+                      <div className="phone"><img src={p.image} alt={p[lang].title} loading="lazy" /></div>
+                    </div>
+                  ) : p.image ? <img src={p.image} alt={p[lang].title} loading="lazy" /> : <Mock kind={p.mock} url={p.url} />}
                 </div>
                 <div className="body">
                   <h4>{p[lang].title}</h4>
