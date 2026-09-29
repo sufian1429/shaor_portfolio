@@ -1,6 +1,5 @@
 // เนื้อหาทั้งเว็บ (EN / TH) — แก้ข้อความที่ไฟล์นี้ไฟล์เดียว
 import profilePic from './assets/profile-pic.jpg';
-import happySave from './assets/portfolio/portfolio-1.jpg';
 import webInternship from './assets/portfolio/portfolio-5.jpg';
 import certDev from './assets/portfolio/portfolio-4.jpg';
 import certBigData from './assets/portfolio/portfolio-3.jpg';
@@ -35,9 +34,6 @@ export const projects = [
   { id: 'dashboard', mock: 'dashboard', tags: ['Dashboard', 'Data'],
     en: { title: 'Executive dashboard', desc: 'Expense reports for two companies that executives can read at a glance.' },
     th: { title: 'แดชบอร์ดผู้บริหาร', desc: 'รายงานค่าใช้จ่ายของ 2 บริษัท ให้ผู้บริหารดูสรุปได้ทันที' } },
-  { id: 'happysave', image: happySave, phone: '#e3f3e4', tags: ['Flutter', 'Mobile'],
-    en: { title: 'Happy Save app', desc: 'Mobile app to record income and expenses with photos.' },
-    th: { title: 'แอป Happy Save', desc: 'แอปบันทึกรายรับ-รายจ่ายพร้อมรูปภาพ' } },
   { id: 'nebula', image: webInternship, phone: '#f4d98f', tags: ['React', 'Internship'],
     en: { title: 'NFT marketplace (internship)', desc: 'Front-end for a website where users buy and sell NFT cards.' },
     th: { title: 'เว็บซื้อขาย NFT (ฝึกงาน)', desc: 'พัฒนาหน้าเว็บสำหรับซื้อขายการ์ด NFT' } },
