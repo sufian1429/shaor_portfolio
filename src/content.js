@@ -44,7 +44,7 @@ export const certificates = [
   { image: certBigData, en: 'Big Data Experience — Software Park Thailand', th: 'Big Data Experience — Software Park Thailand' },
 ];
 
-export const tech = ['HTML', 'CSS', 'JavaScript', 'React', 'Vue.js', 'Node.js', 'Flutter', 'Dart', 'Supabase', 'Firebase', 'MySQL', 'MongoDB', 'SQL', 'Git', 'Postman', 'Power BI'];
+export const tech = ['HTML', 'CSS', 'JavaScript', 'React', 'Vue.js', 'Node.js', 'PHP', 'Flutter', 'Dart', 'Supabase', 'Firebase', 'MySQL', 'MongoDB', 'SQL', 'Git', 'Postman', 'Power BI'];
 
 export const experience = [
   { years: '2026 — Now',
