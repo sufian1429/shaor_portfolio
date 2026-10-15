@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaGithub, FaLinkedinIn, FaFacebookF, FaInstagram, FaLine, FaArrowRight, FaArrowUpRightFromSquare, FaBars, FaXmark, FaCode, FaUser, FaDisplay } from 'react-icons/fa6';
-import { profile, projects, certificates, tech, experience, skills } from '../content';
+import { profile, projects, certificates, tech, skills } from '../content';
 import { Reveal, CountUp, Typed, SectionHead } from './ui';
 import Mock from './Mock';
 
@@ -145,22 +145,7 @@ export function About({ tx, lang }) {
         </div>
 
         <div className="cv">
-          <Reveal from="left">
-            <h4 className="cv-title">{tx.expTitle}</h4>
-            <ol className="timeline">
-              {experience.map((e) => (
-                <li key={e.years + e.en.role}>
-                  <span className="tl-year">{e.years}</span>
-                  <div>
-                    <b>{e[lang].role}</b>
-                    <span className="tl-org">{e[lang].org}</span>
-                    {e[lang].desc && <p>{e[lang].desc}</p>}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </Reveal>
-          <Reveal from="right">
+          <Reveal>
             <h4 className="cv-title">{tx.skillsTitle}</h4>
             <div className="skills">
               {skills[lang].map(([title, list]) => (

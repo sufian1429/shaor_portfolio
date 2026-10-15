@@ -46,24 +46,6 @@ export const certificates = [
 
 export const tech = ['HTML', 'CSS', 'JavaScript', 'React', 'Vue.js', 'Node.js', 'PHP', 'Flutter', 'Dart', 'Supabase', 'Firebase', 'MySQL', 'MongoDB', 'SQL', 'Git', 'Postman', 'Power BI'];
 
-export const experience = [
-  { years: '2026 — Now',
-    en: { role: 'Admin Officer', org: 'Quiet Force', desc: 'Manage documents and expenses for two companies; built a web dashboard so executives can track company data.' },
-    th: { role: 'Admin Officer', org: 'Quiet Force', desc: 'ดูแลเอกสารและค่าใช้จ่ายของ 2 บริษัท และพัฒนาเว็บแดชบอร์ดให้ผู้บริหารติดตามข้อมูล' } },
-  { years: '2024 — Now',
-    en: { role: 'Freelance Web & App Developer', org: 'Self-employed', desc: 'Build websites and apps for clients end to end — barbershop, restaurant and student attendance systems.' },
-    th: { role: 'ฟรีแลนซ์ Web & App Developer', org: 'รับงานอิสระ', desc: 'รับพัฒนาเว็บและแอปตั้งแต่ต้นจนจบ — ระบบร้านตัดผม ร้านอาหาร และเช็คชื่อนักเรียน' } },
-  { years: '2024 — 2026',
-    en: { role: 'IT Operations & System Support', org: 'Southern Information Technology Co., Ltd.', desc: 'Tier 1–2 support, monitored 170+ CCTV cameras 24/7, and kept LAN/Wi-Fi healthy.' },
-    th: { role: 'IT Operations & System Support', org: 'Southern Information Technology Co., Ltd.', desc: 'ซัพพอร์ตผู้ใช้ระดับ 1–2 ดูแลกล้อง CCTV กว่า 170 ตัวตลอด 24 ชม. และดูแลเครือข่าย LAN/Wi-Fi' } },
-  { years: '2024',
-    en: { role: 'Front-end Developer Intern', org: 'Nebula Venture Co., Ltd.', desc: 'Built web interfaces with HTML, CSS, JavaScript and React.' },
-    th: { role: 'นักศึกษาฝึกงาน Front-end Developer', org: 'Nebula Venture Co., Ltd.', desc: 'พัฒนาหน้าเว็บด้วย HTML, CSS, JavaScript และ React' } },
-  { years: '2018 — 2024',
-    en: { role: 'B.Eng. Computer Engineering', org: 'Prince of Songkla University, Phuket', desc: '' },
-    th: { role: 'วศ.บ. วิศวกรรมคอมพิวเตอร์', org: 'มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตภูเก็ต', desc: '' } },
-];
-
 export const skills = {
   en: [
     ['IT Support & Infrastructure', 'Hardware/software troubleshooting, network & CCTV monitoring, daily IT operations'],
@@ -92,7 +74,7 @@ export const t = {
     hello: "Hello, I'm",
     aboutP: 'Computer Engineer from Prince of Songkla University, Phuket. I specialise in IT operations and technical support — I have managed a network of 170+ CCTV cameras — and I build web and mobile apps for businesses as a freelancer.',
     stats: ['Projects', 'Certificates', 'Years in IT'],
-    expTitle: 'Experience', skillsTitle: 'Skills & expertise',
+    skillsTitle: 'Skills & expertise',
     pfEyebrow: 'Portfolio showcase', pfTitle: "Things I've built", pfSub: 'Real client projects, certificates and the tools I use every day.',
     tabs: ['Projects', 'Certificates', 'Tech stack'],
     live: 'Live site', preview: 'Preview',
@@ -113,7 +95,7 @@ export const t = {
     hello: 'สวัสดีครับ ผม',
     aboutP: 'ซูเฟียน มะเซ็ง (โอม) วิศวกรคอมพิวเตอร์ ม.สงขลานครินทร์ ภูเก็ต ถนัดงาน IT Operations และ Technical Support เคยดูแลกล้อง CCTV กว่า 170 ตัว และรับพัฒนาเว็บและแอปให้ธุรกิจแบบฟรีแลนซ์',
     stats: ['ผลงาน', 'ใบประกาศ', 'ปีในสายไอที'],
-    expTitle: 'ประสบการณ์', skillsTitle: 'ทักษะและความเชี่ยวชาญ',
+    skillsTitle: 'ทักษะและความเชี่ยวชาญ',
     pfEyebrow: 'ผลงาน', pfTitle: 'สิ่งที่ผมสร้าง', pfSub: 'ผลงานจริงให้ลูกค้า ใบประกาศ และเครื่องมือที่ใช้ทุกวัน',
     tabs: ['ผลงาน', 'ใบประกาศ', 'เครื่องมือ'],
     live: 'เว็บจริง', preview: 'ภาพจำลอง',
