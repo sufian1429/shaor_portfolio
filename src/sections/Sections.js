@@ -209,7 +209,7 @@ export function Portfolio({ tx, lang }) {
                   <div className="ptags">{p.tags.map((x) => <span key={x}>{x}</span>)}</div>
                   <div className="foot">
                     {p.url
-                      ? <a href={p.url} target="_blank" rel="noopener noreferrer">{tx.live} <FaArrowUpRightFromSquare /></a>
+                      ? <a href={p.url} target="_blank" rel="noopener noreferrer">{p.demo ? tx.demo : tx.live} <FaArrowUpRightFromSquare /></a>
                       : <span className="muted">{p.mock ? tx.preview : ''}</span>}
                   </div>
                 </div>

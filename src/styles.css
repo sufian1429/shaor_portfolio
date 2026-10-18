@@ -194,6 +194,16 @@ h2 { font-size: clamp(30px, 4.5vw, 46px); letter-spacing: -.03em; margin: 10px 0
 .mk-kpis b { display: block; font-size: 13px; color: var(--ink); }
 .mk-chart { flex: 1; display: flex; align-items: flex-end; gap: 6px; padding-top: 6px; }
 .mk-chart i { flex: 1; background: var(--acc); border-radius: 4px 4px 0 0; opacity: .85; }
+.mk-rental { background: #17140f; color: #f6f1e9; justify-content: space-between; }
+.mk-rt-top, .mk-rt-foot { display: flex; justify-content: space-between; align-items: center; }
+.mk-rt-brand { font-family: Georgia, serif; font-size: 18px; letter-spacing: .18em; }
+.mk-rt-slip { background: rgba(63, 122, 90, .25); color: #8fd1a9; border-radius: 999px; padding: 2px 8px; font-size: 8px; font-weight: 600; }
+.mk-rt-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.mk-rt-cal span { text-align: center; padding: 3px 0; border-radius: 4px; font-size: 8px; color: #b9b0a3; border: 1px solid #2f2a22; }
+.mk-rt-cal span.taken { text-decoration: line-through; color: #6b5f52; background: repeating-linear-gradient(-45deg, transparent 0 3px, rgba(178, 67, 63, .18) 3px 5px); }
+.mk-rt-cal span.pick { background: #c2a06a; color: #17140f; border-color: #c2a06a; font-weight: 700; }
+.mk-rt-foot { font-size: 10px; color: #c2a06a; font-weight: 600; }
+.mk-rt-line { background: #06c755; color: #fff; border-radius: 6px; padding: 2px 7px; font-size: 8px; font-weight: 700; }
 
 /* ---------- Contact ---------- */
 .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; text-align: left; }

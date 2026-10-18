@@ -59,7 +59,31 @@ function Dashboard() {
   );
 }
 
-const KINDS = { booking: Booking, pos: Pos, attendance: Attendance, dashboard: Dashboard };
+function Rental() {
+  // dates already rented are struck through; 17–19 is the picked range
+  const taken = [14, 15, 22];
+  return (
+    <div className="mk-body mk-rental">
+      <div className="mk-rt-top">
+        <span className="mk-rt-brand">VELOUR</span>
+        <span className="mk-rt-slip">✓ Slip</span>
+      </div>
+      <div className="mk-rt-cal">
+        {Array.from({ length: 14 }, (_, i) => {
+          const d = 12 + i;
+          const cls = taken.includes(d) ? 'taken' : d >= 17 && d <= 19 ? 'pick' : '';
+          return <span key={d} className={cls}>{d}</span>;
+        })}
+      </div>
+      <div className="mk-rt-foot">
+        <span>฿1,480 · 3 days</span>
+        <span className="mk-rt-line">LINE</span>
+      </div>
+    </div>
+  );
+}
+
+const KINDS = { booking: Booking, pos: Pos, attendance: Attendance, dashboard: Dashboard, rental: Rental };
 
 export default function Mock({ kind, url }) {
   const Body = KINDS[kind];
